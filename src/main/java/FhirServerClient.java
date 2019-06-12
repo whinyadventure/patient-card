@@ -1,4 +1,3 @@
-// hapi-fhir stuff
 import ca.uhn.fhir.context.FhirContext;
 import ca.uhn.fhir.rest.client.api.IGenericClient;
 import ca.uhn.fhir.rest.gclient.ICriterion;
@@ -6,19 +5,17 @@ import ca.uhn.fhir.rest.gclient.StringClientParam;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Patient;
 
-// basic java
 import java.util.List;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class FhirServerClient {
 
-    private static FhirServerClient instance = null;
+    private static FhirServerClient instance = null;  // only one instance at the moment
 
     private final FhirContext context;
     private IGenericClient client;
 
-    // constructor
     private FhirServerClient() {
         this.context = FhirContext.forDstu3();
         this.client = context.newRestfulGenericClient("http://localhost:8080/baseDstu3/");

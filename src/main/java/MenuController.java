@@ -1,27 +1,16 @@
-// javaFX
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TableColumn;
 import javafx.event.ActionEvent;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 
-// plugins
 import javafx.fxml.FXML;
-import lombok.Data;
 
-// hapi-fhrir stuff
 import org.hl7.fhir.dstu3.model.Patient;
 
-// basic java
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -46,7 +35,7 @@ public class MenuController {
     @FXML
     private TextField surnameTextField;
 
-    // changeable list of patients
+    // changeable list of fetched patients
     private ObservableList<SinglePatient> observablePatients = FXCollections.observableArrayList();
 
     private SinglePatient apply(Patient patient) {
@@ -54,35 +43,7 @@ public class MenuController {
         return new SinglePatient(patient);
     }
 
-    @Data
-    private class SinglePatient {
-        private StringProperty id;
-        private StringProperty name;
-        private StringProperty surname;
-        private StringProperty birthDate;
-
-        public SinglePatient(Patient patient) {
-            this.id = new SimpleStringProperty(patient.getIdElement().getIdPart());
-            this.name = new SimpleStringProperty(patient.getName().get(0).getGivenAsSingleString());
-            this.surname = new SimpleStringProperty(patient.getName().get(0).getFamily());
-            this.birthDate = new SimpleStringProperty(this.dateParser(patient.getBirthDate()));
-        }
-
-        private String dateParser(Date date) {
-
-            return new SimpleDateFormat("dd-MM-yyyy").format(date);
-        }
-
-        @Override
-        public String toString() {
-            return "SinglePatient{" +
-                    "firstName=" + name.getValue() +
-                    ", lastName=" + surname.getValue() +
-                    ", dateOfBitrh=" + birthDate.getValue() +
-                    '}';
-        }
-    }
-
+    // fetch filtered by surname
     @FXML
     public void searchForPatients(ActionEvent actionEvent) {
         List<SinglePatient> patients = FhirServerClient.getInstance()
@@ -106,6 +67,15 @@ public class MenuController {
         this.observablePatients.addAll(patients);
     }
 
+    // open card of clicked patient
+    @FXML
+    public void rowClicked(MouseEvent mouseEvent) {
+        if (mouseEvent.getButton().equals(MouseButton.PRIMARY) && mouseEvent.getClickCount() == 2) {
+            PatientCard.getInstance().openPatientCard((SinglePatient) patientsTable.getSelectionModel().getSelectedItem());
+        }
+    }
+
+    // initialize menu table
     @FXML
     public void initialize() {
         patientsTable.setItems(observablePatients);

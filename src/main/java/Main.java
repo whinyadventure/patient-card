@@ -6,7 +6,11 @@ import javafx.stage.Stage;
 import javafx.application.Platform;
 
 public class Main extends Application {
+
     public void start(Stage primaryStage) throws Exception {
+
+        new PatientCard(primaryStage); // save main frame
+
         Parent root = FXMLLoader.load(getClass().getResource("menu.fxml"));
         Scene current_scene = new Scene(root);
         primaryStage.setTitle("Patient Health Card System");
@@ -16,8 +20,6 @@ public class Main extends Application {
     }
 
     public static void main(String... args){
-        //FhirServerClient.getInstance();
-
         launch(args);
     }
 

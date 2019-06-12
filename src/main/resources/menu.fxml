@@ -20,7 +20,7 @@
             </AnchorPane>
         </content>
     </TitledPane>
-    <TableView fx:id="patientsTable" VBox.vgrow="ALWAYS">
+    <TableView fx:id="patientsTable" onMouseClicked="#rowClicked" VBox.vgrow="ALWAYS">
         <columns>
             <TableColumn fx:id="idColumn" text="ID" />
             <TableColumn fx:id="nameColumn" text="First Name" />
