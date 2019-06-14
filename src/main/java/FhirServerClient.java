@@ -7,6 +7,7 @@ import org.hl7.fhir.dstu3.model.Patient;
 import org.hl7.fhir.dstu3.model.Observation;
 import ca.uhn.fhir.rest.gclient.ReferenceClientParam;
 
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.stream.Collectors;

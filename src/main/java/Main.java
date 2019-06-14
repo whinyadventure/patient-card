@@ -5,6 +5,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.application.Platform;
 
+import java.util.Locale;
+
 public class Main extends Application {
 
     public void start(Stage primaryStage) throws Exception {
@@ -20,6 +22,8 @@ public class Main extends Application {
     }
 
     public static void main(String... args){
+
+        Locale.setDefault(Locale.UK);
         launch(args);
     }
 

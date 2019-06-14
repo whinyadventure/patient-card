@@ -32,6 +32,7 @@ public class PatientCard {
             patientController.initialization(chosenPatient);
 
             Scene currentScene = new Scene(root);
+            currentScene.getStylesheets().add("/styles/Styles.css");
             this.primaryStage.setScene(currentScene);
             this.primaryStage.show();
 
