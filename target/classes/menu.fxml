@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MenuController">
+<children>
+    <TitledPane expanded="false" text="Filter">
+        <content>
+            <AnchorPane maxHeight="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="55.0" prefWidth="200.0">
+                <children>
+                    <TextField fx:id="surnameTextField" layoutX="22.0" layoutY="14.0" promptText="patient last name" />
+                    <Button fx:id="searchButton" layoutX="208.0" layoutY="14.0" mnemonicParsing="false" onAction="#searchForPatients" text="Search" />
+                </children>
+            </AnchorPane>
+        </content>
+    </TitledPane>
+    <TableView fx:id="patientsTable" onMouseClicked="#rowClicked" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="idColumn" text="ID" />
+            <TableColumn fx:id="nameColumn" text="First Name" />
+            <TableColumn fx:id="surnameColumn" text="Last Name" />
+            <TableColumn fx:id="birthDateColumn" text="Birth Date" />
+        </columns>
+    </TableView>
+</children>
+</VBox>
