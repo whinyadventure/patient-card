@@ -17,7 +17,9 @@ public class UnitController extends AnchorPane {
 
     private @Getter @Setter int idTimeLine;
 
-    @FXML void showDetail(ActionEvent event) {
+    @FXML
+    void showDetailRequest(ActionEvent event) {
+
         System.out.println("Id of time line = " + idTimeLine);
     }
 

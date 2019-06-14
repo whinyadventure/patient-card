@@ -31,9 +31,9 @@ public class PatientCard {
 
             patientController.initialization(chosenPatient);
 
-            Scene currentScene = new Scene(root);
-            currentScene.getStylesheets().add("/styles/Styles.css");
-            this.primaryStage.setScene(currentScene);
+            Scene patientCardScene = new Scene(root);
+            patientCardScene.getStylesheets().add("/styles/styles.css");
+            this.primaryStage.setScene(patientCardScene);
             this.primaryStage.show();
 
         } catch (IOException e) {

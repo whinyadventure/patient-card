@@ -3,6 +3,7 @@ import ca.uhn.fhir.rest.client.api.IGenericClient;
 import ca.uhn.fhir.rest.gclient.ICriterion;
 import ca.uhn.fhir.rest.gclient.StringClientParam;
 import org.hl7.fhir.dstu3.model.Bundle;
+import org.hl7.fhir.dstu3.model.MedicationRequest;
 import org.hl7.fhir.dstu3.model.Patient;
 import org.hl7.fhir.dstu3.model.Observation;
 import ca.uhn.fhir.rest.gclient.ReferenceClientParam;
@@ -41,6 +42,22 @@ public class FhirServerClient {
                 .returnBundle(Bundle.class)
                 .execute();
     }
+
+    public List<MedicationRequest> getMedicationRequests(String patientId){
+        ReferenceClientParam referenceClientParam = new ReferenceClientParam("patient");
+        ICriterion<ReferenceClientParam> clientParamICriterion = referenceClientParam.hasId(patientId);
+
+        Bundle bundle = client.search().forResource(MedicationRequest.class)
+                .where(clientParamICriterion)
+                .returnBundle(Bundle.class)
+                .execute();
+        return bundle.getEntry()
+                .stream()
+                .map(e -> (MedicationRequest) e.getResource())
+                .sorted(Comparator.comparing(o -> o.getAuthoredOn()))
+                .collect(Collectors.toList());
+    }
+
 
     // convert Bundle type to Patient type
     private List<Patient> convertBundlesToList(Bundle bundle) {

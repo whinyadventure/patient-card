@@ -12,8 +12,11 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         Parent root = FXMLLoader.load(getClass().getResource("menu.fxml"));
-        Scene menuScene = new Scene(root);
         primaryStage.setTitle("Patient Health Card System");
+        primaryStage.setWidth(1280);
+        primaryStage.setHeight(800);
+        primaryStage.setResizable(false);
+        Scene menuScene = new Scene(root);
         primaryStage.setScene(menuScene);
         primaryStage.onCloseRequestProperty().setValue(e -> Platform.exit());
         primaryStage.show();

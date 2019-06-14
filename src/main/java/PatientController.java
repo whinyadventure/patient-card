@@ -1,31 +1,29 @@
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.HPos;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import org.hl7.fhir.dstu3.model.MedicationRequest;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.LinkedList;
-import java.util.List;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.*;
+
 
 public class PatientController {
 
     private SinglePatient currentPatient;
 
-    private static List<TimelineUnit> listeTimeLine;
+    private List<TimelineUnit> listRequestsUnits;
+    private List<MedicationRequest> listFetchedRequests;
 
-    private DatePicker checkInDatePicker;
+    private DatePicker startDateRequests;
 
-    // patient_card.fxml components
+    // Patient tab
     @FXML
     private Label serverID;
 
@@ -56,92 +54,91 @@ public class PatientController {
     @FXML
     private Label country;
 
+    // Request Medication tab
+
     @FXML
     private VBox medicalRequestVBox;
 
+    @FXML
+    private Pane requestDatePane;
+
+    @FXML
+    private ScrollPane requestScrollPane;
+
+    @FXML
+    private Button applyRequestDateBtn;
+
+    @FXML
+    private VBox requestUnitsVBox;
+
+    @FXML
+    public void getRequests(ActionEvent actionEvent) {
+        requestUnitsVBox.getChildren().clear();
+        createRequestUnits(false);
+        addUnits();
+    }
 
 
 
     public void initialization(SinglePatient chosenPatient) {
 
-        checkInDatePicker = new DatePicker();
+        System.out.println(chosenPatient.getId().toString());
+        System.out.println(chosenPatient.getId().get());
+        listFetchedRequests = FhirServerClient.getInstance().getMedicationRequests(chosenPatient.getId().get());
+
+
+        System.out.println(listFetchedRequests.size());
+
+        startDateRequests = new DatePicker();
         this.currentPatient = chosenPatient;
         renderLabels();
         initCalendar();
-        testData();
+
+        createRequestUnits(true);
         addUnits();
     }
 
     private void initCalendar() {
-        VBox vbox = new VBox(20);
-        vbox.setStyle("-fx-padding: 10;");
-
-        checkInDatePicker = new DatePicker();
-
-        GridPane gridPane = new GridPane();
-        gridPane.setHgap(10);
-        gridPane.setVgap(10);
-
-        Label checkInlabel = new Label("Check-In Date:");
-        gridPane.add(checkInlabel, 0, 0);
-
-        GridPane.setHalignment(checkInlabel, HPos.LEFT);
-        gridPane.add(checkInDatePicker, 0, 1);
-        vbox.getChildren().add(gridPane);
-        medicalRequestVBox.getChildren().add(vbox);
+        startDateRequests = new DatePicker();
+        requestDatePane.getChildren().add(startDateRequests);
     }
 
-    public void testData() {
-        listeTimeLine = new LinkedList<>();
-        listeTimeLine.add(
-                TimelineUnit.builder().id(1).title("Install tools")
-                        .details("Install JDK 1.8, Netbeans 8.2, Scene Builder")
-                        .dateTime(LocalDateTime.parse("2018-02-06T13:45:00")).build()
-        );
-        listeTimeLine.add(
-                TimelineUnit.builder().id(2).title("Create An application")
-                        .details("Create new Maven JavaFx Applicaton")
-                        .dateTime(LocalDateTime.parse("2018-02-06T14:10:00")).build()
-        );
-        listeTimeLine.add(
-                TimelineUnit.builder().id(3).title("Gui design")
-                        .details("Create a Simple unity of your Timeline, use your imagination ;)")
-                        .dateTime(LocalDateTime.parse("2018-02-06T14:40:00")).build()
-        );
-        listeTimeLine.add(
-                TimelineUnit.builder().id(4).title("Take a break")
-                        .details("To refresh your brain, Take a break, move, take a coffé")
-                        .dateTime(LocalDateTime.parse("2018-02-06T15:00:00")).build()
-        );
-        listeTimeLine.add(
-                TimelineUnit.builder().id(5).title("Controller")
-                        .details("Create a controller for your GUI")
-                        .dateTime(LocalDateTime.parse("2018-02-06T15:30:00")).build()
-        );
-        listeTimeLine.add(
-                TimelineUnit.builder().id(6).title("The END")
-                        .details("Edit this class and fill this timeline")
-                        .dateTime(LocalDateTime.parse("2018-02-06T16:00:00")).build()
-        );
+    public static Date asDate(LocalDate localDate) {
+        return Date.from(localDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
+    }
+
+    public void createRequestUnits(boolean init) {
+        listRequestsUnits = new LinkedList<>();
+
+        if(this.startDateRequests.getValue() == null) {
+            this.startDateRequests.setValue(LocalDate.now());
+        }
+
+        int idCounter = 1;
+        for(MedicationRequest request: listFetchedRequests) {
+            if(init || request.getAuthoredOn().after(asDate(this.startDateRequests.getValue()))) {
+                listRequestsUnits.add(
+                        TimelineUnit.builder().id(idCounter)
+                                .title(request.getMedicationCodeableConcept().getText())
+                                .details(request.getStatus().toString())
+                                .dateTime(request.getAuthoredOnElement().getValue()).build()
+                );
+                idCounter++;
+            }
+        }
     }
 
     public void addUnits() {
-        VBox vbox = new VBox();
-        for (TimelineUnit timeUnit : listeTimeLine) {
+
+        for (TimelineUnit timeUnit : listRequestsUnits) {
             //For each unit create a new instance
             UnitController unitController = new UnitController();
             unitController.getTitle().setText(timeUnit.getTitle());
             unitController.getDetails().setText(timeUnit.getDetails());
-            unitController.getTime().setText(
-                    timeUnit.getDateTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"))
-            );
+            unitController.getTime().setText(timeUnit.getDateTime().toString());
             unitController.setIdTimeLine(timeUnit.getId());
-            vbox.getChildren().add(unitController);
+            requestUnitsVBox.getChildren().add(unitController);
         }
-
-        ScrollPane scrollPane = new ScrollPane(vbox);
-        scrollPane.setFitToHeight(true);
-        medicalRequestVBox.getChildren().add(scrollPane);
     }
 
     public void renderLabels() {
