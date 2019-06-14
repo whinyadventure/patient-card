@@ -81,4 +81,18 @@ public class FhirServerClient {
         List<Patient> patientsList = convertBundlesToList(fetchBundles);
         return patientsList;
     }
+
+    public List<Observation> getObservations(String id){
+        ReferenceClientParam referenceClientParam = new ReferenceClientParam("patient");
+        ICriterion<ReferenceClientParam> clientParamICriterion = referenceClientParam.hasId(id);
+        Bundle bundle = client.search().forResource(Observation.class)
+                .where(clientParamICriterion)
+                .returnBundle(Bundle.class)
+                .execute();
+        return bundle.getEntry()
+                .stream()
+                .map(e -> (Observation) e.getResource())
+                .sorted(Comparator.comparing(o -> o.getEffectiveDateTimeType().getValue()))
+                .collect(Collectors.toList());
+    }
 }

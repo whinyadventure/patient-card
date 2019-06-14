@@ -7,6 +7,13 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import org.hl7.fhir.dstu3.model.MedicationRequest;
+import org.hl7.fhir.dstu3.model.Observation;
+
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
+import java.sql.Timestamp;
+import java.util.stream.Collectors;
+
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -18,10 +25,12 @@ public class PatientController {
 
     private SinglePatient currentPatient;
 
+    private List<Observation> observations;
+    private List<TimelineUnit> observationsToShow;
     private List<TimelineUnit> listRequestsUnits;
     private List<MedicationRequest> listFetchedRequests;
 
-    private DatePicker startDateRequests;
+    private DatePicker startDateRequests, startDateObservation;
 
     // Patient tab
     @FXML
@@ -54,28 +63,41 @@ public class PatientController {
     @FXML
     private Label country;
 
-    // Request Medication tab
+    @FXML
+    private VBox observationVBox;
 
     @FXML
-    private VBox medicalRequestVBox;
+    private Pane observationDatePane;
+
+    @FXML
+    private Pane observationUnitsVBox;
+
+    //@FXML
+    //private VBox medicalRequestVBox;
 
     @FXML
     private Pane requestDatePane;
 
-    @FXML
-    private ScrollPane requestScrollPane;
+    //@FXML
+    //private ScrollPane requestScrollPane;
 
     @FXML
     private Button applyRequestDateBtn;
 
     @FXML
-    private VBox requestUnitsVBox;
+    private Pane requestUnitsVBox;
 
     @FXML
     public void getRequests(ActionEvent actionEvent) {
+
         requestUnitsVBox.getChildren().clear();
         createRequestUnits(false);
-        addUnits();
+        addUnits(requestUnitsVBox, listRequestsUnits);
+    }
+
+    @FXML
+    public void getObservations(ActionEvent actionEvent) {
+
     }
 
 
@@ -92,15 +114,48 @@ public class PatientController {
         startDateRequests = new DatePicker();
         this.currentPatient = chosenPatient;
         renderLabels();
-        initCalendar();
+        initCalendar(startDateRequests, requestDatePane);
 
         createRequestUnits(true);
-        addUnits();
+        addUnits(requestUnitsVBox, listRequestsUnits);
+
+        initObservationsView();
+    }
+    private void initObservationsView(){
+
+        initCalendar(startDateObservation, observationDatePane);
+        this.observations = FhirServerClient.getInstance().getObservations(this.currentPatient.getId().getValue());
+        System.out.println("Wczytane: " + observations.size() + " " + currentPatient.getId().getValue());
+        showObservation();
+        addUnits(observationUnitsVBox, observationsToShow);
     }
 
-    private void initCalendar() {
-        startDateRequests = new DatePicker();
-        requestDatePane.getChildren().add(startDateRequests);
+    private void showObservation(){
+        observationsToShow = new LinkedList<>();
+        int id = 0;
+        this.observations.stream()
+        .forEach(e ->
+                {
+                    //String date = e.getEffectiveDateTimeType().getValueAsString().substring(0,date.length()-6);
+                    observationsToShow.add(
+                            TimelineUnit.builder().id(0).title(e.getCode().getText())
+                                    .details(extractDetails(e))
+                                    .dateTime(e.getEffectiveDateTimeType().getValue()).build()
+                    );
+               });
+
+
+    }
+    private String extractDetails(Observation observation) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(Types.getTextForValue(observation.getValue()));
+
+        return sb.toString();
+    }
+
+    private void initCalendar(DatePicker actPicker, Pane actPane) {
+        actPicker = new DatePicker();
+        actPane.getChildren().add(actPicker);
     }
 
     public static Date asDate(LocalDate localDate) {
@@ -117,6 +172,7 @@ public class PatientController {
         int idCounter = 1;
         for(MedicationRequest request: listFetchedRequests) {
             if(init || request.getAuthoredOn().after(asDate(this.startDateRequests.getValue()))) {
+                System.out.println("sialalala");
                 listRequestsUnits.add(
                         TimelineUnit.builder().id(idCounter)
                                 .title(request.getMedicationCodeableConcept().getText())
@@ -128,22 +184,23 @@ public class PatientController {
         }
     }
 
-    public void addUnits() {
+    public void addUnits(Pane actPane, List<TimelineUnit> toShow) {
 
-        for (TimelineUnit timeUnit : listRequestsUnits) {
+        for (TimelineUnit timeUnit : toShow) {
             //For each unit create a new instance
             UnitController unitController = new UnitController();
             unitController.getTitle().setText(timeUnit.getTitle());
             unitController.getDetails().setText(timeUnit.getDetails());
             unitController.getTime().setText(timeUnit.getDateTime().toString());
             unitController.setIdTimeLine(timeUnit.getId());
-            requestUnitsVBox.getChildren().add(unitController);
+            actPane.getChildren().add(unitController);
         }
     }
 
     public void renderLabels() {
 
         serverID.textProperty().bind(currentPatient.getId());
+
         firstName.textProperty().bind(currentPatient.getName());
         lastName.textProperty().bind(currentPatient.getSurname());
         birthDate.textProperty().bind(currentPatient.getBirthDate());
