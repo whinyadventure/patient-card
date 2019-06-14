@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a51f452c-7a0b-4146-94c1-830b55f5cc83" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/SingleObservation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Types.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/com_jfoenix_jfoenix_9_0_9.xml" beforeDir="false" />
+    <list default="true" id="a51f452c-7a0b-4146-94c1-830b55f5cc83" name="Default Changelist" comment="merged">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FhirServerClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FhirServerClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PatientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/patient_card.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/patient_card.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/unit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/unit.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/FhirServerClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/FhirServerClient.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/PatientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PatientController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/patient_card.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/patient_card.fxml" afterDir="false" />
     </list>
@@ -57,8 +51,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/PatientController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="168" column="53" selection-start-line="168" selection-start-column="44" selection-end-line="168" selection-end-column="53" />
+            <state relative-caret-position="187">
+              <caret line="154" column="110" selection-start-line="154" selection-start-column="110" selection-end-line="154" selection-end-column="110" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -130,8 +124,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/patient_card.fxml">
           <provider editor-type-id="text-editor">
-            <state relative-caret-position="509">
-              <caret line="266" column="57" selection-start-line="266" selection-start-column="57" selection-end-line="266" selection-end-column="57" />
+            <state relative-caret-position="1856">
+              <caret line="294" column="31" lean-forward="true" selection-start-line="294" selection-start-column="31" selection-end-line="294" selection-end-column="31" />
             </state>
           </provider>
           <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
@@ -156,8 +150,8 @@
         <option value="$PROJECT_DIR$/src/main/java/SingleObservation.java" />
         <option value="$PROJECT_DIR$/src/main/java/Types.java" />
         <option value="$PROJECT_DIR$/src/main/java/UnitController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/patient_card.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/unit.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/patient_card.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/PatientController.java" />
       </list>
     </option>
@@ -264,7 +258,7 @@
       <workItem from="1560357514354" duration="1108000" />
       <workItem from="1560358641510" duration="9570000" />
       <workItem from="1560501936554" duration="1258000" />
-      <workItem from="1560513945538" duration="23596000" />
+      <workItem from="1560513945538" duration="28525000" />
     </task>
     <task id="LOCAL-00001" summary="Single observation template (no data)">
       <created>1560502696656</created>
@@ -273,11 +267,18 @@
       <option name="project" value="LOCAL" />
       <updated>1560502696656</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="merged">
+      <created>1560548200741</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1560548200741</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36776000" />
+    <option name="totallyTimeSpent" value="41705000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -321,7 +322,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Single observation template (no data)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Single observation template (no data)" />
+    <MESSAGE value="merged" />
+    <option name="LAST_COMMIT_MESSAGE" value="merged" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/patient_card$Main.ic" NAME="Main Coverage Results" MODIFIED="1560535667506" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
@@ -409,6 +411,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/unit.fxml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="96" selection-start-line="12" selection-start-column="79" selection-end-line="12" selection-end-column="96" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/TimelineUnit.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -418,24 +428,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/patient_card.fxml">
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="266" column="57" selection-start-line="266" selection-start-column="57" selection-end-line="266" selection-end-column="57" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/unit.fxml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="96" selection-start-line="12" selection-start-column="79" selection-end-line="12" selection-end-column="96" />
+        <state relative-caret-position="1856">
+          <caret line="294" column="31" lean-forward="true" selection-start-line="294" selection-start-column="31" selection-end-line="294" selection-end-column="31" />
         </state>
       </provider>
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/PatientController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="168" column="53" selection-start-line="168" selection-start-column="44" selection-end-line="168" selection-end-column="53" />
+        <state relative-caret-position="187">
+          <caret line="154" column="110" selection-start-line="154" selection-start-column="110" selection-end-line="154" selection-end-column="110" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -9,8 +9,6 @@ import javafx.scene.layout.VBox;
 import org.hl7.fhir.dstu3.model.MedicationRequest;
 import org.hl7.fhir.dstu3.model.Observation;
 
-import java.time.format.DateTimeFormatter;
-import java.time.LocalDateTime;
 import java.sql.Timestamp;
 import java.util.stream.Collectors;
 
@@ -72,14 +70,14 @@ public class PatientController {
     @FXML
     private Pane observationUnitsVBox;
 
-    //@FXML
-    //private VBox medicalRequestVBox;
+    @FXML
+    private VBox medicalRequestVBox;
 
     @FXML
     private Pane requestDatePane;
 
-    //@FXML
-    //private ScrollPane requestScrollPane;
+    @FXML
+    private ScrollPane requestScrollPane;
 
     @FXML
     private Button applyRequestDateBtn;
@@ -91,12 +89,16 @@ public class PatientController {
     public void getRequests(ActionEvent actionEvent) {
 
         requestUnitsVBox.getChildren().clear();
+        System.out.println(this.startDateRequests.getValue());
         createRequestUnits(false);
         addUnits(requestUnitsVBox, listRequestsUnits);
     }
 
     @FXML
     public void getObservations(ActionEvent actionEvent) {
+        observationUnitsVBox.getChildren().clear();
+        filterObservation();
+        addUnits(observationUnitsVBox, observationsToShow);
 
     }
 
@@ -111,19 +113,20 @@ public class PatientController {
 
         System.out.println(listFetchedRequests.size());
 
-        startDateRequests = new DatePicker();
         this.currentPatient = chosenPatient;
         renderLabels();
-        initCalendar(startDateRequests, requestDatePane);
-
+        //initCalendar(startDateRequests, requestDatePane);
+        this.startDateRequests = new DatePicker();
+        requestDatePane.getChildren().add(this.startDateRequests);
         createRequestUnits(true);
         addUnits(requestUnitsVBox, listRequestsUnits);
 
         initObservationsView();
     }
     private void initObservationsView(){
-
-        initCalendar(startDateObservation, observationDatePane);
+        //initCalendar(startDateObservation, observationDatePane);
+        this.startDateObservation = new DatePicker();
+        observationDatePane.getChildren().add(this.startDateObservation);
         this.observations = FhirServerClient.getInstance().getObservations(this.currentPatient.getId().getValue());
         System.out.println("Wczytane: " + observations.size() + " " + currentPatient.getId().getValue());
         showObservation();
@@ -133,29 +136,36 @@ public class PatientController {
     private void showObservation(){
         observationsToShow = new LinkedList<>();
         int id = 0;
-        this.observations.stream()
-        .forEach(e ->
-                {
-                    //String date = e.getEffectiveDateTimeType().getValueAsString().substring(0,date.length()-6);
-                    observationsToShow.add(
-                            TimelineUnit.builder().id(0).title(e.getCode().getText())
-                                    .details(extractDetails(e))
-                                    .dateTime(e.getEffectiveDateTimeType().getValue()).build()
-                    );
-               });
+        this.startDateObservation.setValue(LocalDate.now());
+        for(Observation obs: this.observations){
+            observationsToShow.add(
+                    TimelineUnit.builder().id(id++).title(obs.getCode().getText())
+                            .details(extractDetails(obs))
+                            .dateTime(obs.getEffectiveDateTimeType().getValue()).build()
+            );
+        }
+    }
 
+    private void filterObservation(){
+        observationsToShow = new LinkedList<>();
+        int id = 0;
+        System.out.println(asDate(this.startDateRequests.getValue()));
+        for(Observation obs: this.observations){
 
+            if(obs.getEffectiveDateTimeType().getValue().after(asDate(this.startDateObservation.getValue()))){
+                observationsToShow.add(
+                        TimelineUnit.builder().id(id++).title(obs.getCode().getText())
+                                .details(extractDetails(obs))
+                                .dateTime(obs.getEffectiveDateTimeType().getValue()).build()
+                );
+            }
+        }
     }
     private String extractDetails(Observation observation) {
         StringBuilder sb = new StringBuilder();
         sb.append(Types.getTextForValue(observation.getValue()));
 
         return sb.toString();
-    }
-
-    private void initCalendar(DatePicker actPicker, Pane actPane) {
-        actPicker = new DatePicker();
-        actPane.getChildren().add(actPicker);
     }
 
     public static Date asDate(LocalDate localDate) {
@@ -166,13 +176,14 @@ public class PatientController {
         listRequestsUnits = new LinkedList<>();
 
         if(this.startDateRequests.getValue() == null) {
+
             this.startDateRequests.setValue(LocalDate.now());
         }
 
         int idCounter = 1;
         for(MedicationRequest request: listFetchedRequests) {
             if(init || request.getAuthoredOn().after(asDate(this.startDateRequests.getValue()))) {
-                System.out.println("sialalala");
+
                 listRequestsUnits.add(
                         TimelineUnit.builder().id(idCounter)
                                 .title(request.getMedicationCodeableConcept().getText())
