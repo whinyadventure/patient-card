@@ -9,14 +9,14 @@ public class Main extends Application {
 
     public void start(Stage primaryStage) throws Exception {
 
-        new PatientCard(primaryStage); // save main frame
-
         Parent root = FXMLLoader.load(getClass().getResource("menu.fxml"));
-        Scene current_scene = new Scene(root);
+        Scene menuScene = new Scene(root);
         primaryStage.setTitle("Patient Health Card System");
-        primaryStage.setScene(current_scene);
+        primaryStage.setScene(menuScene);
         primaryStage.onCloseRequestProperty().setValue(e -> Platform.exit());
         primaryStage.show();
+
+        new PatientCard(primaryStage, menuScene); // save main frame
     }
 
     public static void main(String... args){

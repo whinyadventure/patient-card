@@ -9,10 +9,12 @@ public class PatientCard {
 
     private static PatientCard instance = null;  // only one instance at the moment
     public Stage primaryStage; // handle to main frame
+    public Scene menuScene;
 
-    public PatientCard(Stage primary) {
+    public PatientCard(Stage primary, Scene menuScene) {
         instance = this;
         this.primaryStage = primary;
+        this.menuScene = menuScene;
     }
 
     public static PatientCard getInstance() {

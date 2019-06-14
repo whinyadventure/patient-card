@@ -59,7 +59,8 @@ class SinglePatient {
         }
 
         try {
-            this.address = new SimpleStringProperty(patient.getAddressFirstRep().toString());
+            String tmp_addr = patient.getAddressFirstRep().getLine().toString();
+            this.address = new SimpleStringProperty(tmp_addr.substring(1, tmp_addr.length()-1));
         } catch (Exception e) {
             this.address = new SimpleStringProperty("");
         }

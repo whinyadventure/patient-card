@@ -68,10 +68,7 @@ public class PatientController {
     @FXML
     public void backToMenu(ActionEvent actionEvent) throws IOException { // czy na pewno trzeba na nowo renderowac cala scene? Nie wiem, a wydajnosc jest słaba teraz :d
 
-        Parent root = FXMLLoader.load(getClass().getResource("menu.fxml"));
-        Scene current_scene = new Scene(root);
-
-        PatientCard.getInstance().primaryStage.setScene(current_scene);
+        PatientCard.getInstance().primaryStage.setScene(PatientCard.getInstance().menuScene);
         PatientCard.getInstance().primaryStage.show();
     }
 }

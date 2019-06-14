@@ -10,14 +10,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PatientController">
+<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PatientController">
    <children>
       <AnchorPane maxWidth="-Infinity" prefHeight="45.0" prefWidth="600.0">
          <children>
             <Button fx:id="backButton" layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#backToMenu" text="Back to Menu" />
          </children>
       </AnchorPane>
-      <TabPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Patient">
                <content>
@@ -303,7 +303,7 @@
                      </children></VBox>
             </content>
           </Tab>
-            <Tab text="Medication Statement">
+            <Tab text="Medication Request">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
               </content>
