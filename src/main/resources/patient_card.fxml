@@ -250,6 +250,11 @@
                               </HBox.margin>
                            </Pane>
                            <Button fx:id="applyObservationDateBtn" mnemonicParsing="false" onAction="#getObservations" text="Apply Date" />
+                              <Button fx:id="chartsButton" mnemonicParsing="false" onAction="#showCharts" text="Charts">
+                                 <HBox.margin>
+                                    <Insets left="40.0" />
+                                 </HBox.margin>
+                              </Button>
                         </children>
                         <padding>
                            <Insets left="10.0" />

@@ -7,12 +7,12 @@ import java.util.Date;
 
 @UtilityClass
 public class Types {
-/*    public static Date addDaysToDate(Date date, int days) {
+   public static Date addDaysToDate(Date date, int days) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
         calendar.add(Calendar.DATE, days);
         return calendar.getTime();
-    }*/
+    }
 
     public static String getTextForValue(Type value) {
         StringBuilder sb = new StringBuilder();
