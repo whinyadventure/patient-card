@@ -2,26 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a51f452c-7a0b-4146-94c1-830b55f5cc83" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Charts.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ChartsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/DateAxis.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/charts.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Charts.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/ChartsController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/DateAxis$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/DateAxis$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/DateAxis$3.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/DateAxis$Interval.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/DateAxis.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/charts.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/com_jfoenix_jfoenix_9_0_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DetailsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/details.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PatientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Types.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Types.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/patient_card.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/patient_card.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/patientcard.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TimelineUnit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TimelineUnit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UnitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UnitController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/PatientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PatientController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Types.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Types.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/patient_card.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/patient_card.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TimelineUnit$TimelineUnitBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TimelineUnit$TimelineUnitBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/TimelineUnit.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TimelineUnit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/UnitController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/UnitController.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -42,8 +33,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/PatientCard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="23" column="62" selection-start-line="23" selection-start-column="62" selection-end-line="23" selection-end-column="62" />
+            <state relative-caret-position="330">
+              <caret line="29" selection-start-line="29" selection-end-line="29" selection-end-column="73" />
             </state>
           </provider>
         </entry>
@@ -51,8 +42,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/FhirServerClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-527">
-              <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+            <state relative-caret-position="203">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -60,42 +51,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="42" lean-forward="true" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/PatientController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="117" column="74" selection-start-line="117" selection-start-column="74" selection-end-line="117" selection-end-column="74" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/menu.fxml">
-          <provider editor-type-id="text-editor" />
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/charts.fxml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ChartsController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="-1072">
+              <caret line="125" lean-forward="true" selection-start-line="125" selection-end-line="125" />
             </state>
           </provider>
         </entry>
@@ -103,8 +75,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/SingleObservation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
+            <state relative-caret-position="300">
               <caret line="20" column="21" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/SinglePatient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1335">
+              <caret line="89" column="19" selection-start-line="89" selection-start-column="19" selection-end-line="89" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -115,23 +99,31 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Types.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="22" />
+            <state relative-caret-position="120">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/UnitController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="28" column="53" lean-forward="true" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="53" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Charts.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/TimelineUnit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="33" column="51" selection-start-line="33" selection-start-column="15" selection-end-line="33" selection-end-column="51" />
+            <state relative-caret-position="240">
+              <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#583#584#0" expanded="true" />
-                <element signature="e#617#618#0" expanded="true" />
-                <element signature="e#1204#1205#0" expanded="true" />
-                <element signature="e#1252#1253#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -140,8 +132,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/MenuController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="83" column="28" selection-start-line="83" selection-start-column="28" selection-end-line="83" selection-end-column="28" />
+            <state relative-caret-position="780">
+              <caret line="66" column="49" lean-forward="true" selection-start-line="66" selection-start-column="49" selection-end-line="66" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -170,7 +162,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/FhirServerClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/SingleObservation.java" />
-        <option value="$PROJECT_DIR$/src/main/java/UnitController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/unit.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/styles/charts.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/patient_card.fxml" />
@@ -178,7 +169,12 @@
         <option value="$PROJECT_DIR$/src/main/java/Types.java" />
         <option value="$PROJECT_DIR$/src/main/java/Charts.java" />
         <option value="$PROJECT_DIR$/src/main/java/ChartsController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/details.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/Details.java" />
+        <option value="$PROJECT_DIR$/src/main/java/TimelineUnit.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DetailsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/PatientController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/UnitController.java" />
       </list>
     </option>
   </component>
@@ -193,36 +189,35 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="patient-card" type="b2602c69:ProjectViewProjectNode" />
-              <item name="patient-card" type="462c0819:PsiDirectoryNode" />
+              <item name="patientcard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="patientcard" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="patient-card" type="b2602c69:ProjectViewProjectNode" />
-              <item name="patient-card" type="462c0819:PsiDirectoryNode" />
+              <item name="patientcard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="patientcard" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="patient-card" type="b2602c69:ProjectViewProjectNode" />
-              <item name="patient-card" type="462c0819:PsiDirectoryNode" />
+              <item name="patientcard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="patientcard" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="patient-card" type="b2602c69:ProjectViewProjectNode" />
-              <item name="patient-card" type="462c0819:PsiDirectoryNode" />
+              <item name="patientcard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="patientcard" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="patient-card" type="b2602c69:ProjectViewProjectNode" />
-              <item name="patient-card" type="462c0819:PsiDirectoryNode" />
+              <item name="patientcard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="patientcard" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
@@ -231,6 +226,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -263,8 +259,8 @@
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="patient-card" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Program Files\Java\javafx-sdk-12.0.1\lib&quot; --add-modules=javafx.controls,javafx.fxml --add-exports javafx.controls/com.sun.javafx.charts=ALL-UNNAMED" />
+      <module name="patientcard" />
+      <option name="VM_PARAMETERS" value="--module-path /usr/lib/jvm/javafx-sdk-12.0.1/lib --add-modules=javafx.controls,javafx.fxml --add-exports javafx.controls/com.sun.javafx.charts=ALL-UNNAMED" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -319,19 +315,19 @@
     <option name="totallyTimeSpent" value="54959000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="0" y="0" width="1920" height="1050" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49453977" visible="true" weight="0.26107383" />
-      <window_info id="Structure" order="1" sideWeight="0.5054602" side_tool="true" visible="true" weight="0.26107383" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49282297" visible="true" weight="0.26357827" />
+      <window_info id="Structure" order="1" sideWeight="0.50717705" side_tool="true" visible="true" weight="0.26357827" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.09206799" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3297414" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.09913793" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -343,7 +339,6 @@
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.32719547" />
-      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.3295302" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -353,6 +348,7 @@
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Database" order="8" />
+      <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.3295302" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -374,30 +370,6 @@
     <entry file="jar://$MAVEN_REPOSITORY$/ca/uhn/hapi/fhir/hapi-fhir-structures-dstu3/3.6.0/hapi-fhir-structures-dstu3-3.6.0.jar!/org/hl7/fhir/dstu3/model/Observation.class">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SinglePatient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1001">
-          <caret line="89" column="19" selection-start-line="89" selection-start-column="19" selection-end-line="89" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/UnitController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/TimelineUnit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="15" column="25" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/unit.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -414,63 +386,37 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="36" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="83" column="28" selection-start-line="83" selection-start-column="28" selection-end-line="83" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/FhirServerClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-527">
-          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/PatientCard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="23" column="62" selection-start-line="23" selection-start-column="62" selection-end-line="23" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/menu.fxml">
       <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Types.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/charts.fxml">
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="272">
+        <state relative-caret-position="240">
           <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
         </state>
       </provider>
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SingleObservation.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Details.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="20" column="21" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="21" />
+        <state relative-caret-position="45">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/details.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="34" lean-forward="true" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Charts.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="51" selection-start-line="33" selection-start-column="15" selection-end-line="33" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -479,35 +425,116 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ChartsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="-285">
+          <caret line="14" selection-start-line="14" selection-end-line="14" selection-end-column="88" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Charts.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/DateAxis.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="33" column="51" selection-start-line="33" selection-start-column="15" selection-end-line="33" selection-end-column="51" />
+        <state relative-caret-position="270">
+          <caret line="82" column="19" selection-start-line="82" selection-start-column="19" selection-end-line="82" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DetailsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#583#584#0" expanded="true" />
-            <element signature="e#617#618#0" expanded="true" />
-            <element signature="e#1204#1205#0" expanded="true" />
-            <element signature="e#1252#1253#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/FhirServerClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="42" lean-forward="true" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/MenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="66" column="49" lean-forward="true" selection-start-line="66" selection-start-column="49" selection-end-line="66" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/PatientCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="29" selection-start-line="29" selection-end-line="29" selection-end-column="73" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/PatientController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="117" column="74" selection-start-line="117" selection-start-column="74" selection-end-line="117" selection-end-column="74" />
+        <state relative-caret-position="-1072">
+          <caret line="125" lean-forward="true" selection-start-line="125" selection-end-line="125" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SingleObservation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="21" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SinglePatient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1335">
+          <caret line="89" column="19" selection-start-line="89" selection-start-column="19" selection-end-line="89" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/TimelineUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Types.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/UnitController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="28" column="53" lean-forward="true" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="53" />
         </state>
       </provider>
     </entry>

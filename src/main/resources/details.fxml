@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="ObDetails" prefHeight="400.0" prefWidth="600.0" spacing="10.0" BorderPane.alignment="TOP_LEFT" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DetailsController">
+<children>
+    <Label text="Observation Details" underline="true">
+        <font>
+            <Font size="20.0" />
+        </font>
+    </Label>
+    <Label text="Title:">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Label>
+    <Label fx:id="obTitle">
+        <VBox.margin>
+            <Insets left="10.0" />
+        </VBox.margin>
+    </Label>
+    <Label text="Date:">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Label>
+    <Label fx:id="obDate">
+        <VBox.margin>
+            <Insets left="10.0" />
+        </VBox.margin>
+    </Label>
+    <Label text="Value &amp; unit:">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Label>
+    <Label fx:id="obValUni">
+        <VBox.margin>
+            <Insets left="10.0" />
+        </VBox.margin>
+    </Label>
+    <Label text="Status:">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Label>
+    <Label fx:id="obStatus">
+        <VBox.margin>
+            <Insets left="10.0" />
+        </VBox.margin>
+    </Label>
+</children>
+   <padding>
+      <Insets left="20.0" top="10.0" />
+   </padding>
+</VBox>

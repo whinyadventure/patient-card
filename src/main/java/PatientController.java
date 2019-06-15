@@ -68,8 +68,7 @@ public class PatientController {
     @FXML
     private Label country;
 
-    @FXML
-    private VBox observationVBox;
+    // observation tab
 
     @FXML
     private Pane observationDatePane;
@@ -77,17 +76,10 @@ public class PatientController {
     @FXML
     private Pane observationUnitsVBox;
 
-    @FXML
-    private VBox medicalRequestVBox;
+    // request tab
 
     @FXML
     private Pane requestDatePane;
-
-    @FXML
-    private ScrollPane requestScrollPane;
-
-    @FXML
-    private Button applyRequestDateBtn;
 
     @FXML
     private Pane requestUnitsVBox;
@@ -127,53 +119,42 @@ public class PatientController {
         }
     }
 
-
-
     public void initialization(SinglePatient chosenPatient) {
-
-        System.out.println(chosenPatient.getId().toString());
-        System.out.println(chosenPatient.getId().get());
-        listFetchedRequests = FhirServerClient.getInstance().getMedicationRequests(chosenPatient.getId().get());
-
-
-        System.out.println(listFetchedRequests.size());
 
         this.currentPatient = chosenPatient;
         renderLabels();
-        //initCalendar(startDateRequests, requestDatePane);
+
+        this.listFetchedRequests = FhirServerClient.getInstance().getMedicationRequests(chosenPatient.getId().get());
+        this.observations = FhirServerClient.getInstance().getObservations(this.currentPatient.getId().getValue());
+
         this.startDateRequests = new DatePicker();
         requestDatePane.getChildren().add(this.startDateRequests);
         createRequestUnits(true);
         addUnits(requestUnitsVBox, listRequestsUnits);
 
-        initObservationsView();
-    }
-    private void initObservationsView(){
-        //initCalendar(startDateObservation, observationDatePane);
         this.startDateObservation = new DatePicker();
         observationDatePane.getChildren().add(this.startDateObservation);
-        this.observations = FhirServerClient.getInstance().getObservations(this.currentPatient.getId().getValue());
-        System.out.println("Wczytane: " + observations.size() + " " + currentPatient.getId().getValue());
         showObservation();
         addUnits(observationUnitsVBox, observationsToShow);
     }
 
     private void showObservation(){
         observationsToShow = new LinkedList<>();
-        int id = 0;
+        int id = 1;
         this.startDateObservation.setValue(LocalDate.now());
         for(Observation obs: this.observations){
             observationsToShow.add(
                     TimelineUnit.builder().id(id++).title(obs.getCode().getText())
                             .details(extractDetails(obs))
-                            .dateTime(obs.getEffectiveDateTimeType().getValue()).build()
+                            .dateTime(obs.getEffectiveDateTimeType().getValue())
+                            .status(obs.getStatus().toString()).build()
             );
         }
     }
 
     private void filterObservation(){
         observationsToShow = new LinkedList<>();
-        int id = 0;
+        int id = 1;
         System.out.println(asDate(this.startDateRequests.getValue()));
         for(Observation obs: this.observations){
 
@@ -181,7 +162,8 @@ public class PatientController {
                 observationsToShow.add(
                         TimelineUnit.builder().id(id++).title(obs.getCode().getText())
                                 .details(extractDetails(obs))
-                                .dateTime(obs.getEffectiveDateTimeType().getValue()).build()
+                                .dateTime(obs.getEffectiveDateTimeType().getValue())
+                                .status(obs.getStatus().toString()).build()
                 );
             }
         }
@@ -205,17 +187,16 @@ public class PatientController {
             this.startDateRequests.setValue(LocalDate.now());
         }
 
-        int idCounter = 1;
+        int id = 0;
         for(MedicationRequest request: listFetchedRequests) {
             if(init || request.getAuthoredOn().after(asDate(this.startDateRequests.getValue()))) {
 
                 listRequestsUnits.add(
-                        TimelineUnit.builder().id(idCounter)
+                        TimelineUnit.builder().id(id)
                                 .title(request.getMedicationCodeableConcept().getText())
                                 .details(request.getStatus().toString())
                                 .dateTime(request.getAuthoredOnElement().getValue()).build()
                 );
-                idCounter++;
             }
         }
     }
@@ -224,11 +205,16 @@ public class PatientController {
 
         for (TimelineUnit timeUnit : toShow) {
             //For each unit create a new instance
+
             UnitController unitController = new UnitController();
             unitController.getTitle().setText(timeUnit.getTitle());
             unitController.getDetails().setText(timeUnit.getDetails());
             unitController.getTime().setText(timeUnit.getDateTime().toString());
             unitController.setIdTimeLine(timeUnit.getId());
+            unitController.setUnit(timeUnit);
+
+            if(timeUnit.getId() == 0)
+                unitController.getShowDetailBtn().setVisible(false);
             actPane.getChildren().add(unitController);
         }
     }

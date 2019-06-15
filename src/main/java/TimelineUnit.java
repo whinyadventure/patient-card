@@ -14,4 +14,5 @@ public class TimelineUnit {
     private String title;
     private String details;
     private Date dateTime;
+    private String status;
 }
