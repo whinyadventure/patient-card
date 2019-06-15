@@ -1,3 +1,4 @@
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -234,10 +235,36 @@ public class PatientController {
         country.textProperty().bind(currentPatient.getCountry());
     }
 
+    // chwili wlaczony na generowanie nowej sceny przy kazdym powrocie -> sprawdza dzialanie update'ow
     @FXML
     public void backToMenu(ActionEvent actionEvent) throws IOException {
 
-        PatientCard.getInstance().primaryStage.setScene(PatientCard.getInstance().menuScene);
+        Parent root = FXMLLoader.load(getClass().getResource("menu.fxml"));
+        Scene menuScene = new Scene(root);
+        PatientCard.getInstance().primaryStage.setScene(menuScene);
         PatientCard.getInstance().primaryStage.show();
+
+
+        //PatientCard.getInstance().primaryStage.setScene(PatientCard.getInstance().menuScene);
+        //PatientCard.getInstance().primaryStage.show();
+    }
+
+    @FXML
+    public void updatePatient(ActionEvent actionEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("update.fxml"));
+            Scene updateScene = new Scene(fxmlLoader.load());
+
+            Stage stage = new Stage();
+            stage.setTitle("Update data");
+            stage.setScene(updateScene);
+            UpdateController updateController = fxmlLoader.getController();
+            updateController.setOldInfo(currentPatient);
+            stage.show();
+        } catch (IOException e) {
+            Logger logger = Logger.getLogger(getClass().getName());
+            logger.log(Level.SEVERE, "Failed to create new Window.", e);
+        }
     }
 }
