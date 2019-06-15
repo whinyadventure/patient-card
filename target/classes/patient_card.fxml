@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PatientController">
+<VBox xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PatientController">
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="45.0">
          <children>
@@ -322,11 +322,6 @@
                         </ScrollPane>
                      </children></VBox>
                </content>
-            </Tab>
-            <Tab text="Medication">
-              <content>
-                <AnchorPane />
-              </content>
             </Tab>
         </tabs>
       </TabPane>

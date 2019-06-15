@@ -1,5 +1,6 @@
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -12,6 +13,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import org.hl7.fhir.dstu3.model.MedicationRequest;
 import org.hl7.fhir.dstu3.model.Observation;
 
@@ -244,9 +246,6 @@ public class PatientController {
         PatientCard.getInstance().primaryStage.setScene(menuScene);
         PatientCard.getInstance().primaryStage.show();
 
-
-        //PatientCard.getInstance().primaryStage.setScene(PatientCard.getInstance().menuScene);
-        //PatientCard.getInstance().primaryStage.show();
     }
 
     @FXML
@@ -261,6 +260,12 @@ public class PatientController {
             stage.setScene(updateScene);
             UpdateController updateController = fxmlLoader.getController();
             updateController.setOldInfo(currentPatient);
+            stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                public void handle(WindowEvent we) {
+
+                    initialization(new SinglePatient(updateController.getPatient()));
+                }
+            });
             stage.show();
         } catch (IOException e) {
             Logger logger = Logger.getLogger(getClass().getName());

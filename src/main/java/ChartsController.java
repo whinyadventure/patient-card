@@ -30,7 +30,6 @@ public class ChartsController{
         this.observations = Charts.getInstance().getMappedObservations();
 
         this.selectChart.setItems(FXCollections.observableArrayList(observations.keySet()));
-        this.selectChart.getSelectionModel().select(0);
 
         selectChart.getSelectionModel().selectedIndexProperty().addListener((options, before, now)->{
             System.out.println(selectChart.getSelectionModel().getSelectedItem());

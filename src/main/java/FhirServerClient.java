@@ -33,13 +33,10 @@ public class FhirServerClient {
         return instance;
     }
 
-    // zamiast updateowac dodaje nowe rekordy -> wydaje mi sie chyba inny ID trzeba podawac, systemowy czy cos takiego, mozna probowac bezposrednio pod adres URL
     public void updatePatient(Patient updatedPatient) {
 
         client.update()
                 .resource(updatedPatient)
-                .conditional()
-                .where(Patient.IDENTIFIER.exactly().identifier(updatedPatient.getId()))
                 .execute();
     }
 

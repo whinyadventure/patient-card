@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_patient-card" default="compile.module.patient-card">
+  <dirname property="module.patient-card.basedir" file="${ant.file.module_patient-card}"/>
+  
+  <property name="module.jdk.home.patient-card" value="${jdk.home.12}"/>
+  <property name="module.jdk.bin.patient-card" value="${jdk.bin.12}"/>
+  <property name="module.jdk.classpath.patient-card" value="jdk.classpath.12"/>
+  
+  <property name="compiler.args.patient-card" value="-encoding UTF-8 -source 12 -target 12 ${compiler.args}"/>
+  
+  <property name="patient-card.output.dir" value="${module.patient-card.basedir}/../target/classes"/>
+  <property name="patient-card.testoutput.dir" value="${module.patient-card.basedir}/../target/test-classes"/>
+  
+  <path id="patient-card.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="patient-card.module.production.classpath">
+    <path refid="${module.jdk.classpath.patient-card}"/>
+    <fileset dir="C:/Program Files/Java/javafx-sdk-12.0.1/lib">
+      <patternset refid="library.patterns"/>
+    </fileset>
+    <path refid="library.maven:_org.projectlombok:lombok:1.18.2.classpath"/>
+    <path refid="library.maven:_ca.uhn.hapi.fhir:hapi-fhir-structures-dstu3:3.6.0.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.1.classpath"/>
+    <path refid="library.maven:_ca.uhn.hapi.fhir:hapi-fhir-utilities:3.6.0.classpath"/>
+    <path refid="library.maven:_com.google.code.gson:gson:2.8.5.classpath"/>
+    <path refid="library.maven:_commons-io:commons-io:2.6.classpath"/>
+    <path refid="library.maven:_ca.uhn.hapi.fhir:hapi-fhir-base:3.6.0.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-lang3:3.8.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-text:1.4.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava:25.0-jre.classpath"/>
+    <path refid="library.maven:_com.google.code.findbugs:jsr305:1.3.9.classpath"/>
+    <path refid="library.maven:_org.checkerframework:checker-compat-qual:2.0.0.classpath"/>
+    <path refid="library.maven:_com.google.errorprone:error_prone_annotations:2.1.3.classpath"/>
+    <path refid="library.maven:_com.google.j2objc:j2objc-annotations:1.1.classpath"/>
+    <path refid="library.maven:_org.codehaus.mojo:animal-sniffer-annotations:1.14.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.maven:_org.slf4j:jcl-over-slf4j:1.7.25.classpath"/>
+    <path refid="library.maven:_ca.uhn.hapi.fhir:hapi-fhir-client:3.6.0.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.5.3.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.4.6.classpath"/>
+    <path refid="library.maven:_com.jfoenix:jfoenix:9.0.9.classpath"/>
+  </path>
+  
+  <path id="patient-card.runtime.production.module.classpath">
+    <pathelement location="${patient-card.output.dir}"/>
+    <fileset dir="C:/Program Files/Java/javafx-sdk-12.0.1/lib">
+      <patternset refid="library.patterns"/>
+    </fileset>
+    <path refid="library.maven:_org.projectlombok:lombok:1.18.2.classpath"/>
+    <path refid="library.maven:_ca.uhn.hapi.fhir:hapi-fhir-structures-dstu3:3.6.0.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.1.classpath"/>
+    <path refid="library.maven:_ca.uhn.hapi.fhir:hapi-fhir-utilities:3.6.0.classpath"/>
+    <path refid="library.maven:_com.google.code.gson:gson:2.8.5.classpath"/>
+    <path refid="library.maven:_commons-io:commons-io:2.6.classpath"/>
+    <path refid="library.maven:_ca.uhn.hapi.fhir:hapi-fhir-base:3.6.0.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-lang3:3.8.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-text:1.4.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava:25.0-jre.classpath"/>
+    <path refid="library.maven:_com.google.code.findbugs:jsr305:1.3.9.classpath"/>
+    <path refid="library.maven:_org.checkerframework:checker-compat-qual:2.0.0.classpath"/>
+    <path refid="library.maven:_com.google.errorprone:error_prone_annotations:2.1.3.classpath"/>
+    <path refid="library.maven:_com.google.j2objc:j2objc-annotations:1.1.classpath"/>
+    <path refid="library.maven:_org.codehaus.mojo:animal-sniffer-annotations:1.14.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.maven:_org.slf4j:jcl-over-slf4j:1.7.25.classpath"/>
+    <path refid="library.maven:_ca.uhn.hapi.fhir:hapi-fhir-client:3.6.0.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.5.3.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.4.6.classpath"/>
+    <path refid="library.maven:_com.jfoenix:jfoenix:9.0.9.classpath"/>
+  </path>
+  
+  <path id="patient-card.module.classpath">
+    <path refid="${module.jdk.classpath.patient-card}"/>
+    <pathelement location="${patient-card.output.dir}"/>
+    <fileset dir="C:/Program Files/Java/javafx-sdk-12.0.1/lib">
+      <patternset refid="library.patterns"/>
+    </fileset>
+    <path refid="library.maven:_org.projectlombok:lombok:1.18.2.classpath"/>
+    <path refid="library.maven:_ca.uhn.hapi.fhir:hapi-fhir-structures-dstu3:3.6.0.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.1.classpath"/>
+    <path refid="library.maven:_ca.uhn.hapi.fhir:hapi-fhir-utilities:3.6.0.classpath"/>
+    <path refid="library.maven:_com.google.code.gson:gson:2.8.5.classpath"/>
+    <path refid="library.maven:_commons-io:commons-io:2.6.classpath"/>
+    <path refid="library.maven:_ca.uhn.hapi.fhir:hapi-fhir-base:3.6.0.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-lang3:3.8.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-text:1.4.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava:25.0-jre.classpath"/>
+    <path refid="library.maven:_com.google.code.findbugs:jsr305:1.3.9.classpath"/>
+    <path refid="library.maven:_org.checkerframework:checker-compat-qual:2.0.0.classpath"/>
+    <path refid="library.maven:_com.google.errorprone:error_prone_annotations:2.1.3.classpath"/>
+    <path refid="library.maven:_com.google.j2objc:j2objc-annotations:1.1.classpath"/>
+    <path refid="library.maven:_org.codehaus.mojo:animal-sniffer-annotations:1.14.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.maven:_org.slf4j:jcl-over-slf4j:1.7.25.classpath"/>
+    <path refid="library.maven:_ca.uhn.hapi.fhir:hapi-fhir-client:3.6.0.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.5.3.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.4.6.classpath"/>
+    <path refid="library.maven:_com.jfoenix:jfoenix:9.0.9.classpath"/>
+  </path>
+  
+  <path id="patient-card.runtime.module.classpath">
+    <pathelement location="${patient-card.testoutput.dir}"/>
+    <pathelement location="${patient-card.output.dir}"/>
+    <fileset dir="C:/Program Files/Java/javafx-sdk-12.0.1/lib">
+      <patternset refid="library.patterns"/>
+    </fileset>
+    <path refid="library.maven:_org.projectlombok:lombok:1.18.2.classpath"/>
+    <path refid="library.maven:_ca.uhn.hapi.fhir:hapi-fhir-structures-dstu3:3.6.0.classpath"/>
+    <path refid="library.maven:_commons-codec:commons-codec:1.1.classpath"/>
+    <path refid="library.maven:_ca.uhn.hapi.fhir:hapi-fhir-utilities:3.6.0.classpath"/>
+    <path refid="library.maven:_com.google.code.gson:gson:2.8.5.classpath"/>
+    <path refid="library.maven:_commons-io:commons-io:2.6.classpath"/>
+    <path refid="library.maven:_ca.uhn.hapi.fhir:hapi-fhir-base:3.6.0.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-lang3:3.8.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-text:1.4.classpath"/>
+    <path refid="library.maven:_com.google.guava:guava:25.0-jre.classpath"/>
+    <path refid="library.maven:_com.google.code.findbugs:jsr305:1.3.9.classpath"/>
+    <path refid="library.maven:_org.checkerframework:checker-compat-qual:2.0.0.classpath"/>
+    <path refid="library.maven:_com.google.errorprone:error_prone_annotations:2.1.3.classpath"/>
+    <path refid="library.maven:_com.google.j2objc:j2objc-annotations:1.1.classpath"/>
+    <path refid="library.maven:_org.codehaus.mojo:animal-sniffer-annotations:1.14.classpath"/>
+    <path refid="library.maven:_org.slf4j:slf4j-api:1.7.25.classpath"/>
+    <path refid="library.maven:_org.slf4j:jcl-over-slf4j:1.7.25.classpath"/>
+    <path refid="library.maven:_ca.uhn.hapi.fhir:hapi-fhir-client:3.6.0.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpclient:4.5.3.classpath"/>
+    <path refid="library.maven:_org.apache.httpcomponents:httpcore:4.4.6.classpath"/>
+    <path refid="library.maven:_com.jfoenix:jfoenix:9.0.9.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.patient-card">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.patient-card">
+    <patternset refid="excluded.from.module.patient-card"/>
+  </patternset>
+  
+  <path id="patient-card.module.sourcepath">
+    <dirset dir="${module.patient-card.basedir}/../../patient-card">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.patient-card" depends="compile.module.patient-card.production,compile.module.patient-card.tests" description="Compile module patient-card"/>
+  
+  <target name="compile.module.patient-card.production" depends="register.custom.compilers" description="Compile module patient-card; production classes">
+    <mkdir dir="${patient-card.output.dir}"/>
+    <javac2 destdir="${patient-card.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.patient-card}/javac">
+      <compilerarg line="${compiler.args.patient-card}"/>
+      <bootclasspath refid="patient-card.module.bootclasspath"/>
+      <classpath refid="patient-card.module.production.classpath"/>
+      <src refid="patient-card.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.patient-card"/>
+    </javac2>
+    
+    <copy todir="${patient-card.output.dir}">
+      <fileset dir="${module.patient-card.basedir}/../src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.patient-card.basedir}/../src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.patient-card.tests" depends="register.custom.compilers,compile.module.patient-card.production" description="compile module patient-card; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.patient-card" description="cleanup module">
+    <delete dir="${patient-card.output.dir}"/>
+    <delete dir="${patient-card.testoutput.dir}"/>
+  </target>
+</project>

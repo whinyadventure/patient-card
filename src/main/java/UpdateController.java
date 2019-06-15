@@ -1,9 +1,13 @@
+import ca.uhn.fhir.rest.api.MethodOutcome;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.commons.lang3.ObjectUtils;
 import org.hl7.fhir.dstu3.model.Patient;
+
+import org.hl7.fhir.dstu3.model.Enumerations.AdministrativeGender;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,9 +19,6 @@ public class UpdateController {
 
     @FXML
     private TextField lastName;
-
-    @FXML
-    private TextField birthDate;
 
     @FXML
     private TextField phoneNbr;
@@ -37,78 +38,70 @@ public class UpdateController {
     @Setter @Getter
     private SinglePatient oldInfo;
 
+    @Setter @Getter
+    private Patient patient;
+
     @FXML
-    public void confirmUpdate(ActionEvent actionEvent) {
-        Patient patient = new Patient();
+    public void confirmUpdate(ActionEvent actionEvent) throws ParseException {
+        patient = new Patient();
+        patient.addIdentifier().setSystem("urn:system").setValue("12345");
 
-        // zle pola probuje przypisac, problem z ogarnieciem tej pieprzonej struktury raz jeszcze...
-        if (firstName.getText() != "")
-            patient.addName().addGiven(firstName.getText());
+        if (!firstName.getText().equals("") && !lastName.getText().equals(""))
+            patient.addName().setFamily(lastName.getText()).addGiven(firstName.getText());
+        else if(firstName.getText().equals("") && !lastName.getText().equals(""))
+            patient.addName().setFamily(lastName.getText()).addGiven(oldInfo.getName().get());
+        else if(lastName.getText().equals("") && !firstName.getText().equals(""))
+            patient.addName().setFamily(oldInfo.getSurname().get()).addGiven(firstName.getText());
         else
-            patient.addName().addGiven(oldInfo.getName().get());
+            patient.addName().setFamily(oldInfo.getSurname().get()).addGiven(oldInfo.getName().get());
 
-        if (lastName.getText() != "")
-            patient.addName().setFamily(lastName.getText());
-        else
-            patient.addName().setFamily(oldInfo.getSurname().get());
+        Date date = new SimpleDateFormat("dd-MM-yyyy").parse(oldInfo.getBirthDate().get());
+        patient.setBirthDate(date);
 
-        // zle parsery, data sie nie formatuje
-        /*if (birthDate.getText() != "") {
-            try {
-                Date date = new SimpleDateFormat("dd-MM-yyyy").parse(birthDate.getText());
-                patient.setBirthDate(date);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-        } else {
-            try {
-                Date date = new SimpleDateFormat("dd-MM-yyyy").parse(oldInfo.getBirthDate().get());
-                patient.setBirthDate(date);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-        //}*/
+        if(oldInfo.getGender().getValue() == "FEMALE"){
+            System.out.println("Kobieta");
+            patient.setGender(AdministrativeGender.FEMALE);
+        }else{
+            patient.setGender(AdministrativeGender.MALE);
+        }
 
-        if(phoneNbr.getText() != "")
+
+        if(!phoneNbr.getText().equals(""))
             patient.addTelecom().setValue(phoneNbr.getText());
         else
             patient.addTelecom().setValue(oldInfo.getPhoneNbr().get());
 
-        if(address.getText() != "")
-            patient.addAddress().addLine(address.getText());
+        String addressText;
+        if(!address.getText().equals(""))
+            addressText = address.getText();
         else
-            patient.addAddress().addLine(oldInfo.getAddress().get());
+            addressText = oldInfo.getAddress().get();
 
-        if(city.getText() != "")
-            patient.addAddress().setCity(city.getText());
+        String cityText;
+        if(!city.getText().equals(""))
+            cityText = city.getText();
         else
-            patient.addAddress().setCity(oldInfo.getCity().get());
-
-        if(postCode.getText() != "")
-            patient.addAddress().setPostalCode(postCode.getText());
+            cityText = oldInfo.getCity().get();
+        String postCodeText;
+        if(!postCode.getText().equals(""))
+            postCodeText = postCode.getText();
         else
-            patient.addAddress().setPostalCode(oldInfo.getPostCode().get());
+            postCodeText = oldInfo.getPostCode().get();
 
-        if(country.getText() != "")
-            patient.addAddress().setCountry(country.getText());
+        String countryText;
+        if(!country.getText().equals(""))
+            countryText = country.getText();
         else
-            patient.addAddress().setCountry(oldInfo.getCountry().get());
+            countryText = oldInfo.getCountry().get();
 
+        patient.addAddress().addLine(addressText).setCity(cityText).setPostalCode(postCodeText).setCountry(countryText);
 
         patient.setId(oldInfo.getId().get());
 
-        System.out.println(oldInfo.getId());
-        System.out.println(oldInfo.getName());
-        System.out.println(oldInfo.getSurname());
-        System.out.println(oldInfo.getAddress());
 
-        System.out.println(patient.getId());
+        FhirServerClient.getInstance().updatePatient(patient);
+        System.out.println("update completed");
 
-
-
-
-        //FhirServerClient.getInstance().updatePatient(patient);
-        //System.out.println("update completed");
 
     }
 }
